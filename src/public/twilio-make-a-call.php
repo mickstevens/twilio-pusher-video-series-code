@@ -12,3 +12,7 @@ $call = $twilio->account->calls->create(
 );
 
 echo 'Call initiated with id ' . $call->sid;
+
+sleep(10);
+
+$call->update(['Status' => 'completed']);
