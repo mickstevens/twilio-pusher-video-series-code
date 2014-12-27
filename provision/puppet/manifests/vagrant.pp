@@ -37,3 +37,8 @@ package { "postfix":
 package { "mailutils":
     ensure => present
 }
+
+import "beanstalkd"
+include beanstalkd
+
+include supervisor
