@@ -42,3 +42,13 @@ import "beanstalkd"
 include beanstalkd
 
 include supervisor
+
+supervisor::service {'pusher':
+    ensure => present,
+    command => '/usr/bin/php /var/www/repo/src/private/console pusher:push',
+    user => 'root',
+    group => 'root',
+    autorestart => true,
+    startsecs => 0,
+    require => [Package['php5-cli'], Package['beanstalkd']]
+}
