@@ -10,4 +10,10 @@ $response->gather([
     'method' => 'POST'
 ])->say('Please enter your four digit verification code to continue');
 
+$pusher->trigger(
+    'verification_updates_' . md5($_POST['Called']),
+    'verification.started',
+    ['Your call is in progress']
+);
+
 print $response;
