@@ -15,4 +15,4 @@ echo 'Call initiated with id ' . $call->sid;
 
 sleep(10);
 
-$call->update(['Status' => 'completed']);
+$call->update(['Url' => 'http://public-url/twiml-hangup.php']);
