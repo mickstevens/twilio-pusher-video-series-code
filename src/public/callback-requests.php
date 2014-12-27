@@ -26,6 +26,20 @@
                     }
                 });
 
+                $('#requests').on('click', 'li', function () {
+                    var clicked = $(this);
+
+                    $.ajax({
+                        url: '/callback-connect-call.php',
+                        type: 'post',
+                        data: {'operative': $('input[name="number"]').val(), 'requester': $(this).data('number')},
+                        success: function (data) {
+                            $(clicked).remove();
+                            console.log(data);
+                            // TODO: remove call request for other instances of this page which might be open
+                        }
+                    });
+                });
             });
 
         </script>
