@@ -1,0 +1,3 @@
+[submodule "provision/puppet/modules/hostname"]
+	path = provision/puppet/modules/hostname
+	url = https://github.com/mkpeacock/puppet-hostname
