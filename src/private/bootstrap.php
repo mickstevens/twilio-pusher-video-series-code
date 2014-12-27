@@ -17,3 +17,25 @@ $pusher = new \Pusher(
 $pheanstalk = function () {
     return new \Pheanstalk_Pheanstalk('127.0.0.1');
 };
+
+function pushActivity($number, $message, $pusher)
+{
+    $numbers = [
+        '+' => [ // number
+            'name' => 'Joe Bloggs',
+            'gravatar' => 'http://www.gravatar.com/avatar/' . md5(strtolower(trim('your@email.address'))),
+        ]
+    ];
+
+    $payload = [
+        'number' => $number,
+        'message' => $message,
+        'time' => date('Y-m-d H:i:s')
+    ];
+
+    if (array_key_exists($number, $numbers)) {
+        $payload['caller'] = $numbers[$number];
+    }
+
+    $pusher->trigger('private-stream', 'update', $payload);
+}
