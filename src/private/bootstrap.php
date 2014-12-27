@@ -7,3 +7,9 @@ $twilio = new \Services_Twilio(
     $settings['sid'],
     $settings['token']
 );
+
+$pusher = new \Pusher(
+    $settings['key'],
+    $settings['secret'],
+    $settings['app_id']
+);
