@@ -2,6 +2,10 @@
 
 require_once __DIR__ . '/../private/bootstrap.php';
 
+$number = $_POST['Caller'];
+
+pushActivity($number, 'Called the IVR', $pusher);
+
 $menu = [];
 $menu[] = 'Press 1 for a joke';
 $menu[] = 'Press 2 for the management conference room';

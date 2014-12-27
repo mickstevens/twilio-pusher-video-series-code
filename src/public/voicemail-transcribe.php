@@ -30,3 +30,9 @@ Thanks,
 Packt video tutorial';
 
 mail('your@email.address', 'You have a new message', $message);
+
+if ($transcription_status != 'completed') {
+    pushActivity($from, 'Tried to leave a voicemail, but transcribing failed', $pusher);
+} else {
+    pushActivity($from, 'Has left a voicemail: ' . $transcription_text, $pusher);
+}
