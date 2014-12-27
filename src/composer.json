@@ -1,5 +1,6 @@
 {
     "require": {
-        "twilio/sdk": "3.12.2"
+        "twilio/sdk": "3.12.2",
+        "pusher/pusher-php-server": "dev-master"
     }
 }
