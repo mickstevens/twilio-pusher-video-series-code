@@ -13,3 +13,7 @@ $pusher = new \Pusher(
     $settings['secret'],
     $settings['app_id']
 );
+
+$pheanstalk = function () {
+    return new \Pheanstalk_Pheanstalk('127.0.0.1');
+};
